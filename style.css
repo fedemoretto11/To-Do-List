@@ -1,0 +1,48 @@
+body {
+    background-color: antiquewhite;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+.contenedor {
+    background: #3e8;
+    height: 800px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 1px ;
+}
+
+.input-tareas {
+    padding: 10px;
+    width: 500px;
+    text-align: center;
+}
+
+.toDo {
+    width: 420px;
+    height: 36px;
+    font-size: 2rem;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #3e8;
+    background-color: #444;
+}
+
+.icono {
+    font-size: 2rem;
+    padding: 10px;
+    color: #444;
+    text-align: center;
+}
