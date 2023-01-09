@@ -61,4 +61,6 @@ li {
     list-style: none;
     color: #f8f6ff;
     background-color: #b0729d;
+    margin: 8px;
+    box-shadow: 0 0 3px 0px #000;
 }
