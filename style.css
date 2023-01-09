@@ -1,5 +1,5 @@
 body {
-    background-color: antiquewhite;
+    background-color: #3c1d3a;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -12,7 +12,7 @@ body {
 
 
 .contenedor {
-    background: #3e8;
+    background: #ccafb5;
     height: 800px;
     width: 100%;
     display: flex;
@@ -33,16 +33,32 @@ body {
 .toDo {
     width: 420px;
     height: 36px;
-    font-size: 2rem;
+    font-size: 1.8rem;
     border-radius: 10px;
     text-decoration: none;
-    color: #3e8;
-    background-color: #444;
+    color: #ccafb5;
+    background-color: #3c1d3a;
 }
 
 .icono {
     font-size: 2rem;
     padding: 10px;
-    color: #444;
+    color: #3c1d3a;
     text-align: center;
+}
+
+.icono:hover {
+    cursor: pointer;
+}
+
+
+li {
+    width: 420px;
+    height: 36px;
+    font-size: 1.8rem;
+    border-radius: 10px;
+    text-decoration: none;
+    list-style: none;
+    color: #f8f6ff;
+    background-color: #b0729d;
 }
