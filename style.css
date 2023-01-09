@@ -9,7 +9,12 @@ body {
 
 
 
-
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin: 20px;
+    color: #ccafb5;
+}
 
 .contenedor {
     background: #ccafb5;
@@ -26,23 +31,33 @@ body {
 
 .input-tareas {
     padding: 10px;
-    width: 500px;
+    width: 600px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .toDo {
     width: 420px;
     height: 36px;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     border-radius: 10px;
     text-decoration: none;
     color: #ccafb5;
     background-color: #3c1d3a;
 }
 
+#importancia {
+    font-size: 1.55rem;
+    padding: 5px;
+    border-radius: 10px;
+    
+}
+
 .icono {
     font-size: 2rem;
-    padding: 10px;
     color: #3c1d3a;
     text-align: center;
 }
@@ -53,7 +68,7 @@ body {
 
 
 li {
-    width: 420px;
+    width: 500px;
     height: 36px;
     font-size: 1.8rem;
     border-radius: 10px;
