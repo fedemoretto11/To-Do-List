@@ -22,29 +22,28 @@
 
 </head>
 <body>
-    <nav>
-    </nav>
-    <main>
-        
-        <div>
-            <h1>To Do List</h1>
-        </div>
-        <div class="contenedor">
-            <div class="input-tareas">
-                <input type="text" class="toDo">     
-                <select name="importancia" id="importancia">
-                    <option value="alta">Alta</option>
-                    <option value="media">Media</option>
-                    <option value="baja">Baja</option>
-                </select>
-                <i class="bi bi-check-circle icono"></i>
+
+    <div class="list roundBorder">
+        <div class="date">
+            <div class="dateRight">
+                <div id="dateNumber"></div>
+                <div>
+                    <div id="dateMonth"></div>
+                    <div id="dateYear"></div>
+                </div>
             </div>
-            <div class="tareas">
-                <ul>
-                    
-                    
-                </ul>
-            </div>
+            <div id="dateText"></div>
         </div>
-    </main>
+        <form onsubmit="addNewTask(event)" >
+            <input type="text" name="taskText" autocomplete="off" placeholder="Nueva tarea" class="roundBorder">
+            <button type="submit" class="addTaskButton">+</button>
+            <button type="button" class="orderButton roundBorder" onclick="renderOrderedTasks()">Ordenar</button>
+        </form>
+        <div id="taskContainer"></div>
+    </div>
+
+
+
+
+
 </body>
