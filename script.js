@@ -16,6 +16,7 @@ const setDate = () => {
 
 };
 
+
 const addNewTask = event => {
     event.preventDefault();
     const { value } = event.target.taskText;
