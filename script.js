@@ -1,53 +1,64 @@
-const dateNumber = document.getElementById('dateNumber');
-const dateMonth = document.getElementById('dateMonth');
-const dateYear = document.getElementById('dateYear');
-const dateText = document.getElementById('dateText');
+const addItems = document.querySelector(".add-items");
+const itemsList = document.querySelector(".plates");
+const items = JSON.parse(localStorage.getItem("item")) || [];
+const clear = document.getElementById("clear")
 
-const taskContainer = document.getElementById('taskContainer');
 
-const setDate = () => {
-    const date = new Date();
 
-    dateNumber.textContent = date.toLocaleString('es', { day: 'numeric' });
-    dateMonth.textContent = date.toLocaleString('es', { month: 'short' });
-    dateYear.textContent = date.toLocaleString('es', { year: 'numeric' });
-    dateText.textContent = date.toLocaleString('es', { weekday: 'long' });   
+function agregarItem(e) {
+    e.preventDefault();
+    const text = (this.querySelector('[name=item]')).value;
+    const item = {
+        text: text,
+        done: false,
+    };
     
-
-};
-
-
-const addNewTask = event => {
-    event.preventDefault();
-    const { value } = event.target.taskText;
-    if(!value) return;
-    const task = document.createElement('div');
-    task.classList.add('task', 'roundBorder');
-    task.addEventListener('click', changeTaskState)
-    task.textContent = value;
-    taskContainer.prepend(task);
-    event.target.reset();
-};
-
-const changeTaskState = event => {
-    event.target.classList.toggle('done')
-};
-
-const order = () => {
-    const done = [];
-    const toDo = [];
-    taskContainer.childNodes.forEach(el => {
-        el.classList.contains('done') ? done.push(el) : toDo.push(el);
-    })
-    return [...toDo, ...done]
+    items.push(item);
+    agregarLista(items,itemsList);
+    localStorage.setItem("item", JSON.stringify(items))
+    this.reset();
 }
 
-const renderOrderedTasks = () => {
-    order().forEach(el => { taskContainer.appendChild(el)})
+function agregarLista(plates = [], platesList) {
+    platesList.innerHTML = plates.map((plate,i) => {
+        return `
+            <li>
+                <input type="checkbox" data-index="${i}" id="item${i}" ${plate.done ? 'checked' : ''}>
+                <label for="item${i}">${plate.text}</label>
+            </li>
+        `
+    }).join("");
 }
 
 
+function toggleDone(e) {
+    if (!e.target.matches("input")) return;
+    const el = e.target;
+    const index = el.dataset.index;
+    items[index].done = !items[index].done
+    localStorage.setItem("item", JSON.stringify(items))
+    agregarLista(items,itemsList);
+    
+    
+}
+
+function borrarTerminados() {
+    items.map((item) => {
+        if(item.done) {
+        console.log(items.indexOf(item));
+        let index = items.indexOf(item);
+        items.splice(index,1)
+        agregarLista(items,itemsList);
+        localStorage.setItem("item", JSON.stringify(items))
+        }
+    })   
+}
 
 
 
-setDate();
+
+
+addItems.addEventListener("submit", agregarItem);
+agregarLista(items,itemsList);
+itemsList.addEventListener("click", toggleDone);
+clear.addEventListener("click", borrarTerminados)

@@ -23,24 +23,20 @@
 </head>
 <body>
 
-    <div class="list roundBorder">
-        <div class="date">
-            <div class="dateRight">
-                <div id="dateNumber"></div>
-                <div>
-                    <div id="dateMonth"></div>
-                    <div id="dateYear"></div>
-                </div>
-            </div>
-            <div id="dateText"></div>
-        </div>
-        <form onsubmit="addNewTask(event)" >
-            <input type="text" name="taskText" autocomplete="off" placeholder="Nueva tarea" class="roundBorder">
-            <button type="submit" class="addTaskButton">+</button>
-            <button type="button" class="orderButton roundBorder" onclick="renderOrderedTasks()">Ordenar</button>
-        </form>
-        <div id="taskContainer"></div>
-    </div>
+
+  <div class="wrapper">
+    <h2>Tareas</h2>
+    <form class="add-items">
+      <input type="text" name="item" placeholder="Inserte tarea" required>
+      <input type="submit" value="+ Add tarea">
+      <input type="button" value="Borrar terminados" id="clear">
+    </form>
+    <p></p>
+    <ul class="plates">
+      <li>Esperando Tarea...</li>
+      
+    </ul>
+  </div>
 
 
 
